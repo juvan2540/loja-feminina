@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Márcia Lojas - Moda feminina com estilo e elegância. Vestidos, blusas, saias e calças com os melhores preços.">
+  <title>Márcia Lojas | Moda Feminina</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container">
+      <a href="#" class="logo">Márcia <span>Lojas</span></a>
+      <ul class="nav" id="mainNav">
+        <li><a href="#inicio">Início</a></li>
+        <li><a href="#categorias">Categorias</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#promocoes">Promoções</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <div class="header-actions">
+        <button onclick="toggleCart()" title="Carrinho" id="cartBtn">🛒 <span class="cart-count" style="display:none">0</span></button>
+      </div>
+      <button class="menu-toggle" id="menuToggle">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="hero-tag">✨ Nova Coleção 2026</span>
+        <h1>Vista-se com <span>Elegância</span> e Estilo</h1>
+        <p>Descubra as últimas tendências da moda feminina com peças exclusivas selecionadas especialmente para você brilhar em qualquer ocasião.</p>
+        <div class="hero-btns">
+          <a href="#produtos" class="btn btn-primary">Ver Coleção →</a>
+          <a href="#categorias" class="btn btn-outline">Categorias</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIAS -->
+  <section class="section" id="categorias">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Explore</span>
+        <h2>Nossas Categorias</h2>
+        <p>Encontre o estilo perfeito para cada momento da sua vida</p>
+      </div>
+      <div class="categories-grid">
+        <div class="category-card reveal">
+          <img src="img/cat-vestidos.png" alt="Vestidos">
+          <div class="category-overlay"><h3>Vestidos</h3></div>
+        </div>
+        <div class="category-card reveal">
+          <img src="img/cat-blusas.png" alt="Blusas">
+          <div class="category-overlay"><h3>Blusas</h3></div>
+        </div>
+        <div class="category-card reveal">
+          <img src="img/cat-saias.png" alt="Saias">
+          <div class="category-overlay"><h3>Saias</h3></div>
+        </div>
+        <div class="category-card reveal">
+          <img src="img/cat-calcas.png" alt="Calças">
+          <div class="category-overlay"><h3>Calças</h3></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUTOS -->
+  <section class="section" id="produtos" style="background:var(--gradient-dark)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Coleção</span>
+        <h2>Produtos em Destaque</h2>
+        <p>Peças selecionadas com carinho para o seu guarda-roupa</p>
+      </div>
+      <div class="products-filter reveal">
+        <button class="filter-btn active" data-filter="todos">Todos</button>
+        <button class="filter-btn" data-filter="vestidos">Vestidos</button>
+        <button class="filter-btn" data-filter="blusas">Blusas</button>
+        <button class="filter-btn" data-filter="saias">Saias</button>
+        <button class="filter-btn" data-filter="calcas">Calças</button>
+      </div>
+      <div class="products-grid" id="productsGrid"></div>
+    </div>
+  </section>
+
+  <!-- PROMOÇÕES -->
+  <section class="section" id="promocoes">
+    <div class="container">
+      <div class="promo-banner reveal">
+        <div class="promo-content">
+          <h2>🔥 Super Promoção</h2>
+          <p>Até 40% de desconto em peças selecionadas. Corra, é por tempo limitado!</p>
+          <a href="#produtos" class="btn" style="background:#111;color:#fff;">Aproveitar Agora</a>
+        </div>
+        <div class="countdown" id="countdown"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="section" id="depoimentos" style="background:var(--gradient-dark)">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-tag">Avaliações</span>
+        <h2>O que Dizem Nossas Clientes</h2>
+        <p>A opinião de quem já vestiu nossas peças</p>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Amei o vestido que comprei! A qualidade é incrível e o tecido é muito confortável. Recebi muitos elogios!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">A</div>
+            <div class="author-info"><strong>Ana Paula</strong><span>São Paulo, SP</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Entrega super rápida e a blusa veio exatamente como na foto. Já é minha loja favorita de moda feminina!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">C</div>
+            <div class="author-info"><strong>Camila Santos</strong><span>Rio de Janeiro, RJ</span></div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal">
+          <div class="stars">★★★★★</div>
+          <p>"Preços justos e peças maravilhosas. A calça pantalona é perfeita para o trabalho. Super recomendo!"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">M</div>
+            <div class="author-info"><strong>Marina Lima</strong><span>Belo Horizonte, MG</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="section" id="contato">
+    <div class="container">
+      <div class="newsletter reveal">
+        <h2>Fique por Dentro das Novidades</h2>
+        <p>Cadastre seu e-mail e receba ofertas exclusivas e lançamentos em primeira mão</p>
+        <form class="newsletter-form" id="newsletterForm">
+          <input type="email" placeholder="Seu melhor e-mail" required>
+          <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="logo">Márcia <span>Lojas</span></div>
+          <p>Moda feminina com estilo, qualidade e preços acessíveis. Vista-se com elegância todos os dias.</p>
+          <div class="social-links">
+            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="WhatsApp">💬</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul>
+            <li><a href="#inicio">Início</a></li>
+            <li><a href="#categorias">Categorias</a></li>
+            <li><a href="#produtos">Produtos</a></li>
+            <li><a href="#promocoes">Promoções</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Ajuda</h4>
+          <ul>
+            <li><a href="#">Trocas e Devoluções</a></li>
+            <li><a href="#">Formas de Pagamento</a></li>
+            <li><a href="#">Prazo de Entrega</a></li>
+            <li><a href="#">Perguntas Frequentes</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contato</h4>
+          <ul>
+            <li><a href="#">contato@marcialojas.com.br</a></li>
+            <li><a href="#">(11) 99999-9999</a></li>
+            <li><a href="#">São Paulo, SP</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Márcia Lojas. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- CART PANEL -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+      <h3>Seu Carrinho</h3>
+      <button class="cart-close" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total"><span>Total:</span><span class="val" id="cartTotal">R$ 0,00</span></div>
+      <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="openPayment()">Finalizar Compra</button>
+    </div>
+  </div>
+
+  <!-- PAYMENT MODAL -->
+  <div class="payment-overlay" id="paymentOverlay">
+    <div class="payment-modal" id="paymentModal">
+      <button class="payment-close" onclick="closePayment()">✕</button>
+
+      <!-- PAYMENT CONTENT -->
+      <div id="paymentContent">
+        <h3>💳 Pagamento</h3>
+        <p class="subtitle">Escolha sua forma de pagamento preferida</p>
+
+        <div class="payment-methods" id="paymentMethods">
+          <div class="payment-method active" onclick="selectPayment('pix')">
+            <span class="pm-icon">📱</span>
+            <span class="pm-label">PIX</span>
+            <span class="pm-desc">Aprovação imediata</span>
+          </div>
+          <div class="payment-method" onclick="selectPayment('credito')">
+            <span class="pm-icon">💳</span>
+            <span class="pm-label">Crédito</span>
+            <span class="pm-desc">Até 12x sem juros</span>
+          </div>
+          <div class="payment-method" onclick="selectPayment('debito')">
+            <span class="pm-icon">🏦</span>
+            <span class="pm-label">Débito</span>
+            <span class="pm-desc">5% de desconto</span>
+          </div>
+          <div class="payment-method" onclick="selectPayment('boleto')">
+            <span class="pm-icon">📄</span>
+            <span class="pm-label">Boleto</span>
+            <span class="pm-desc">Vence em 3 dias</span>
+          </div>
+        </div>
+
+        <!-- RESUMO -->
+        <div class="pay-summary" id="paySummary"></div>
+
+        <!-- PIX FORM -->
+        <div class="payment-form active" id="formPix">
+          <div class="pix-container">
+            <div class="pix-qr"><div class="pix-qr-grid"></div></div>
+            <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:12px">Escaneie o QR Code ou copie o código abaixo</p>
+            <div class="pix-code" id="pixCode">00020126580014br.gov.bcb.pix0136marcia.lojas@pix.com.br5204000053039865802BR</div>
+            <button class="pix-copy-btn" onclick="copyPix()">📋 Copiar Código PIX</button>
+          </div>
+        </div>
+
+        <!-- CREDIT CARD FORM -->
+        <div class="payment-form" id="formCredito">
+          <div class="pay-field">
+            <label>Número do Cartão</label>
+            <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCardNumber(this)">
+          </div>
+          <div class="pay-field">
+            <label>Nome no Cartão</label>
+            <input type="text" placeholder="Como está no cartão" style="text-transform:uppercase">
+          </div>
+          <div class="pay-row">
+            <div class="pay-field">
+              <label>Validade</label>
+              <input type="text" placeholder="MM/AA" maxlength="5" oninput="formatExpiry(this)">
+            </div>
+            <div class="pay-field">
+              <label>CVV</label>
+              <input type="text" placeholder="000" maxlength="4">
+            </div>
+          </div>
+          <div class="pay-field">
+            <label>Parcelas</label>
+            <select id="installments"></select>
+          </div>
+          <button class="btn-pay" onclick="processPayment()">Pagar com Cartão de Crédito</button>
+        </div>
+
+        <!-- DEBIT CARD FORM -->
+        <div class="payment-form" id="formDebito">
+          <div class="pay-field">
+            <label>Número do Cartão</label>
+            <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" oninput="formatCardNumber(this)">
+          </div>
+          <div class="pay-field">
+            <label>Nome no Cartão</label>
+            <input type="text" placeholder="Como está no cartão" style="text-transform:uppercase">
+          </div>
+          <div class="pay-row">
+            <div class="pay-field">
+              <label>Validade</label>
+              <input type="text" placeholder="MM/AA" maxlength="5" oninput="formatExpiry(this)">
+            </div>
+            <div class="pay-field">
+              <label>CVV</label>
+              <input type="text" placeholder="000" maxlength="4">
+            </div>
+          </div>
+          <button class="btn-pay" onclick="processPayment()">Pagar com Débito (5% desc.)</button>
+        </div>
+
+        <!-- BOLETO FORM -->
+        <div class="payment-form" id="formBoleto">
+          <div class="boleto-container">
+            <div class="boleto-icon">📄</div>
+            <p class="boleto-info">O boleto será gerado e terá vencimento em <strong>3 dias úteis</strong>.<br>Após o pagamento, a confirmação ocorre em até 2 dias úteis.</p>
+            <div class="boleto-code">23793.38128 60000.000003 00000.000402 1 92370000029990</div>
+            <button class="btn-pay" onclick="processPayment()">Gerar Boleto Bancário</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUCCESS -->
+      <div class="payment-success" id="paymentSuccess">
+        <div class="check">✅</div>
+        <h4>Pagamento Realizado!</h4>
+        <p>Seu pedido foi confirmado com sucesso.<br>Você receberá um e-mail com os detalhes.</p>
+        <br>
+        <button class="btn btn-primary" onclick="closePayment()">Continuar Comprando</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
