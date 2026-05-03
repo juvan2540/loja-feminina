@@ -10,7 +10,7 @@ const products = [
   { id:8, name:"Vestido Midi Elegante", category:"vestidos", price:319.90, oldPrice:399.90, img:"img/prod-vestido1.png", badge:"Destaque", stock: 8 }
 ];
 
-export default function handler(req, res) {
+module.exports = { default: function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET, OPTIONS');
   
@@ -24,4 +24,4 @@ export default function handler(req, res) {
   }
   
   return res.status(200).json({ success: true, products, total: products.length });
-}
+}};

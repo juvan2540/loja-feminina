@@ -1,5 +1,5 @@
 // API de Newsletter - Marcia Lojas
-export default function handler(req, res) {
+module.exports = { default: function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'POST, OPTIONS');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
@@ -23,4 +23,4 @@ export default function handler(req, res) {
     success: true,
     message: 'Cadastro realizado com sucesso! Você receberá nossas ofertas exclusivas.'
   });
-}
+}};
