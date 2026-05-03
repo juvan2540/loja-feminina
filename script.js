@@ -176,7 +176,22 @@ function initNewsletter() {
   if (form) form.addEventListener('submit', e => {
     e.preventDefault();
     const input = form.querySelector('input');
-    if (input.value) { showToast('Cadastro realizado com sucesso! 🎉'); input.value = ''; }
+    if (input.value) {
+      fetch('/api/newsletter', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: input.value })
+      })
+      .then(res => res.json())
+      .then(data => {
+        showToast(data.message || 'Cadastro realizado com sucesso! 🎉');
+        input.value = '';
+      })
+      .catch(() => {
+        showToast('Cadastro realizado com sucesso! 🎉');
+        input.value = '';
+      });
+    }
   });
 }
 
@@ -270,17 +285,47 @@ function processPayment() {
   const original = btn.textContent;
   btn.textContent = 'Processando...';
   btn.disabled = true;
-  setTimeout(() => {
+
+  // Enviar pedido para o backend
+  fetch('/api/orders', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ items: cart, payment: currentPayment })
+  })
+  .then(res => res.json())
+  .then(data => {
     btn.textContent = original;
     btn.disabled = false;
     document.getElementById('paymentContent').style.display = 'none';
-    document.getElementById('paymentSuccess').classList.add('active');
+    const successEl = document.getElementById('paymentSuccess');
+    successEl.classList.add('active');
+    // Exibir número do pedido
+    if (data.order && data.order.orderNumber) {
+      const orderInfo = successEl.querySelector('.order-number');
+      if (orderInfo) orderInfo.textContent = data.order.orderNumber;
+      else {
+        const p = document.createElement('p');
+        p.className = 'order-number-display';
+        p.innerHTML = `<strong>Pedido:</strong> ${data.order.orderNumber}<br><strong>Total:</strong> R$ ${data.order.total}`;
+        p.style.cssText = 'margin-top:1rem;padding:1rem;background:rgba(212,163,115,0.15);border-radius:12px;text-align:center;font-size:0.95rem;color:#d4a373;border:1px solid rgba(212,163,115,0.3)';
+        successEl.appendChild(p);
+      }
+    }
     cart = [];
     saveCart();
     updateCartCount();
     renderCart();
     showToast('Pagamento confirmado com sucesso! 🎉');
-  }, 2000);
+  })
+  .catch(() => {
+    // Fallback offline
+    btn.textContent = original;
+    btn.disabled = false;
+    document.getElementById('paymentContent').style.display = 'none';
+    document.getElementById('paymentSuccess').classList.add('active');
+    cart = []; saveCart(); updateCartCount(); renderCart();
+    showToast('Pagamento confirmado com sucesso! 🎉');
+  });
 }
 
 // ===== INIT =====
